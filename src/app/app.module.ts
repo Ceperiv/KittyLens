@@ -1,9 +1,12 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
 import {SharedModuleModule} from "./shared/shared-module.module";
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {PagesModule} from "./pages/pages.module";
+import {CoreModule} from "./core/core.module";
 
 @NgModule({
   declarations: [
@@ -11,9 +14,14 @@ import {SharedModuleModule} from "./shared/shared-module.module";
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModuleModule,
+    PagesModule,
+    CoreModule,
+    BrowserAnimationsModule
   ],
-  providers: [SharedModuleModule],
+  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
