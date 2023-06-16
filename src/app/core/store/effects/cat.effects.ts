@@ -1,25 +1,24 @@
-import {Injectable} from '@angular/core';
-import {Action, StateContext} from '@ngxs/store';
-import {tap} from 'rxjs/operators';
-import {HttpClient} from '@angular/common/http';
-
-import {urls} from "../../../configs";
-import {FetchCats} from "../actions/cat.actions";
+import { Injectable } from '@angular/core';
+import { Action, StateContext } from '@ngxs/store';
+import { catchError, tap } from 'rxjs/operators';
+import { FetchCats, FetchCatsError, FetchCatsSuccess } from '../actions/cat.actions';
+import {CatService} from "../../services";
+import {ICats} from "../../../interfaces";
 
 @Injectable()
 export class CatEffects {
-  constructor(private http: HttpClient) {
-  }
+  constructor(private catService: CatService) {}
 
   @Action(FetchCats)
-  fetchCats(ctx: StateContext<any[]>) {
-    return this.http
-      .get<{ data: any[] }>(urls.cats())
-      .pipe(
-        tap(response => {
-          const cats = response.data;
-          ctx.patchState(cats);
-        })
-      );
-  };
+  fetchCats(ctx: StateContext<ICats[]>) {
+    return this.catService.getCatsByParams().pipe(
+      tap((cats: ICats[]) => {
+        ctx.dispatch(new FetchCatsSuccess(cats));
+      }),
+      catchError((error) => {
+        ctx.dispatch(new FetchCatsError(error));
+        throw error;
+      })
+    );
+  }
 }

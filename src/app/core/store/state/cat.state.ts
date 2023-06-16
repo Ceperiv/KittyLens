@@ -1,12 +1,13 @@
-import { State, Action, StateContext, Selector } from '@ngxs/store';
+import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { tap } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
 
-import {urls} from "../../../configs";
-import {FetchCats} from "../actions/cat.actions";
+import { FetchCats, FetchCatsError, FetchCatsSuccess } from '../actions/cat.actions';
+import { CatService } from '../../services';
+import { ICats } from '../../../interfaces';
+import {Injectable} from "@angular/core";
 
 export interface CatStateModel {
-  cats: any[];
+  cats: ICats[];
   isLoading: boolean;
   error: any;
 }
@@ -16,11 +17,53 @@ export interface CatStateModel {
   defaults: {
     cats: [],
     isLoading: false,
-    error: null
-  }
+    error: null,
+  },
 })
+@Injectable()
 export class CatState {
-  constructor(private http: HttpClient) {}
+  constructor(private catService: CatService) {}
+
+  @Action(FetchCats)
+  fetchCats(ctx: StateContext<CatStateModel>) {
+    ctx.patchState({
+      isLoading: true,
+      error: null,
+    });
+
+    return this.catService.getCatsByParams().pipe(
+      tap(
+        (cats: ICats[]) => {
+          ctx.dispatch(new FetchCatsSuccess(cats));
+        },
+        (error: any) => {
+          ctx.dispatch(new FetchCatsError(error));
+        }
+      )
+    );
+  }
+
+  @Action(FetchCatsSuccess)
+  fetchCatsSuccess(ctx: StateContext<CatStateModel>, action: FetchCatsSuccess) {
+    const cats = action.payload;
+
+    ctx.patchState({
+      cats,
+      isLoading: false,
+      error: null,
+    });
+  }
+
+  @Action(FetchCatsError)
+  fetchCatsError(ctx: StateContext<CatStateModel>, action: FetchCatsError) {
+    const error = action.error; // Оновлено з action.payload на action.error
+
+    ctx.patchState({
+      cats: [],
+      isLoading: false,
+      error,
+    });
+  }
 
   @Selector()
   static getCats(state: CatStateModel) {
@@ -28,25 +71,12 @@ export class CatState {
   }
 
   @Selector()
-  static getIsLoading(state: CatStateModel) {
+  static isLoading(state: CatStateModel) {
     return state.isLoading;
   }
 
   @Selector()
   static getError(state: CatStateModel) {
     return state.error;
-  }
-
-  @Action(FetchCats)
-  fetchCats(ctx: StateContext<CatStateModel>) {
-    ctx.patchState({ isLoading: true, error: null });
-    return this.http
-      .get<{ data: any[] }>(urls.cats())
-      .pipe(
-        tap(response => {
-          const cats = response.data;
-          ctx.patchState({ cats, isLoading: false });
-        })
-      );
   }
 }

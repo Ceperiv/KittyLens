@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 
 import {MainLayoutComponent} from "./layouts";
 import {FooterComponent, HeaderComponent, SideBarComponent} from './components';
+import {RouterOutlet} from "@angular/router";
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import {FooterComponent, HeaderComponent, SideBarComponent} from './components';
     SideBarComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterOutlet
   ]
 })
 export class SharedModuleModule {

@@ -4,20 +4,26 @@ import {HttpClientModule} from "@angular/common/http";
 import {NgxsModule} from "@ngxs/store";
 
 import {CatState} from "./store/state/cat.state";
-import {CatEffects} from "./store/effects/cat.effects";
 import {NgxsLoggerPluginModule} from "@ngxs/logger-plugin";
 import {environment} from "../../environmets/environment.dev";
+import { CatsComponent } from './components/cats/cats.component';
+import {CatSelectors} from "./store/selectors/cat.selectors";
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    CatsComponent
+  ],
+  exports: [
+    CatsComponent
+  ],
   imports: [
     CommonModule,
     HttpClientModule,
     NgxsModule.forRoot([CatState]),
-    NgxsModule.forFeature([CatEffects]),
+    // NgxsModule.forFeature([CatState]),
     NgxsLoggerPluginModule.forRoot({
-      disabled:environment.production
+      disabled: environment.production
     })
   ]
 })

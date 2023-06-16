@@ -1,0 +1,13 @@
+<div *ngIf="(isLoading$ | async)">
+  Loading...
+</div>
+
+<div *ngIf="(error$ | async) as error">
+  Error: {{ error | json }}
+</div>
+
+<div *ngIf="(cats$ | async) as cats">
+  <div *ngFor="let cat of cats">
+    <img [src]="cat.url" [alt]="cat.id" [width]="cat.width" [height]="cat.height">
+  </div>
+</div>
