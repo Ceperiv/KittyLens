@@ -13,16 +13,18 @@
       <mat-form-field>
         <mat-label>Sorting</mat-label>
         <mat-select formControlName="sorting">
-          <mat-option value="RAND">RAND</mat-option>
-          <mat-option value="DESC">DESC</mat-option>
-          <mat-option value="ASC">ASC</mat-option>
+          <mat-option value="RAND">Random</mat-option>
+          <mat-option value="DESC">Descending</mat-option>
+          <mat-option value="ASC">Ascending</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field>
+          <mat-label>Cats on the page</mat-label>
         <mat-select formControlName="limit">
           <mat-option value="10">10 per page</mat-option>
           <mat-option value="20">20 per page</mat-option>
           <mat-option value="50">50 per page</mat-option>
+          <mat-option value="100">100 per page</mat-option>
         </mat-select>
       </mat-form-field>
       <div style="display: flex; width: 100%; justify-content: space-evenly">

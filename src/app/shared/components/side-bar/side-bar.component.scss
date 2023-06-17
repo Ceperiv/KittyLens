@@ -1,15 +1,15 @@
 .aside_wrap {
   width: max-content;
-  min-height: calc(100vh - 225px);
-  max-height: 100vh;
+  height:max-content;
   display: flex;
   position: relative;
   background: blueviolet;
+  box-shadow:  0 10px 10px ;
 
   ._aside {
     width: 100%;
     background: silver;
-    padding: 5px;
+    padding: 30px 20px;
 
     form{
       display: flex;
@@ -22,6 +22,9 @@
     right: -30px;
     top: 0;
     transition: 0.1s;
+    z-index: 100;
+    color: darkgoldenrod;
+    cursor: pointer;
   }
   .toggle_button:hover{
    scale: 1.1;

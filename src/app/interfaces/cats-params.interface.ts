@@ -1,5 +1,5 @@
 export interface IParams {
-  limit?: number,
+  limit?: string,
   breed?: string,
   sorting?: string
 }

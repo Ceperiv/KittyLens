@@ -1,10 +1,10 @@
-import { Action, Selector, State, StateContext } from '@ngxs/store';
+import {Action, Selector, State, StateContext} from '@ngxs/store';
 import {Injectable} from "@angular/core";
-import { tap } from 'rxjs/operators';
+import {tap} from 'rxjs/operators';
 
-import { FetchCats, FetchCatsError, FetchCatsSuccess } from '../actions/cat.actions';
-import { CatService } from '../../services';
-import { ICats } from '../../../interfaces';
+import {FetchCats, FetchCatsError, FetchCatsSuccess} from '../actions/cat.actions';
+import {CatService} from '../../services';
+import {ICats} from '../../../interfaces';
 import {ParamsService} from "../../../shared/services";
 
 export interface CatStateModel {
@@ -24,7 +24,8 @@ export interface CatStateModel {
 @Injectable()
 export class CatState {
   constructor(private catService: CatService,
-              private paramsService: ParamsService) {}
+              private paramsService: ParamsService) {
+  }
 
   @Action(FetchCats)
   fetchCats(ctx: StateContext<CatStateModel>) {
@@ -32,11 +33,12 @@ export class CatState {
       isLoading: true,
       error: null,
     });
-    // const {limit, breed, sorting} = this.paramsService.getParams()
-    console.log(this.paramsService.getParams())
-    return this.catService.getCatsByParams().pipe(
+    const {limit, breed, sorting} = this.paramsService.getParams()
+
+    return this.catService.getCatsByParams(limit, breed, sorting).pipe(
       tap(
         (cats: ICats[]) => {
+          console.log(cats,8888)
           ctx.dispatch(new FetchCatsSuccess(cats));
         },
         (error: any) => {

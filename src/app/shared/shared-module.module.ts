@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {MainLayoutComponent} from "./layouts";
-import {ViewCatsComponent, FooterComponent, HeaderComponent, SideBarComponent} from './components';
+import {FooterComponent, HeaderComponent, SideBarComponent, ViewCatsComponent} from './components';
 import {RouterOutlet} from "@angular/router";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatInputModule} from "@angular/material/input";
@@ -13,6 +13,8 @@ import {MatIconModule} from "@angular/material/icon";
 import {CoreModule} from "../core/core.module";
 import {MatSelectModule} from "@angular/material/select";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {ViewPhotoModalComponent} from './components/view-photo-modal/view-photo-modal.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 @NgModule({
@@ -22,6 +24,7 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     FooterComponent,
     SideBarComponent,
     ViewCatsComponent,
+    ViewPhotoModalComponent,
   ],
   exports: [
     SideBarComponent,
@@ -40,6 +43,7 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     ReactiveFormsModule,
     MatSelectModule,
     MatProgressSpinnerModule,
+    MatDialogModule
 
   ]
 })
