@@ -23,7 +23,7 @@
 }
 
 .cats_view_wrap {
-  width: 98%;
+  width: 95%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,6 +58,7 @@
 
 @media (max-width: 1024px) {
   .cats_view_wrap {
+    width: 90%;
     .cat_block {
       width: 40%;
 
@@ -70,6 +71,7 @@
 
 @media (max-width: 992px) {
   .cats_view_wrap {
+    width: 80%;
     .cat_block {
       width: 90%;
 
