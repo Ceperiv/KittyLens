@@ -46,7 +46,6 @@ import {ViewPhotoModalComponent} from './components/view-photo-modal/view-photo-
     MatDialogModule,
     RouterLink,
     RouterLinkActive
-
   ]
 })
 export class SharedModuleModule {

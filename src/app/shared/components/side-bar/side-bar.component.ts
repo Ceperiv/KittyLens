@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {IBreeds, IErr} from "../../../interfaces";
 import {FormControl, FormGroup} from "@angular/forms";
 import {Select, Store} from "@ngxs/store";
 import {Observable} from "rxjs";
 
+import {IBreeds, IErr} from "../../../interfaces";
 import {BreedState} from "../../../core/store/state/breeds.state";
 import {FetchBreeds} from "../../../core/store/actions/breeds.actions";
 import {FetchCats} from "../../../core/store/actions/cat.actions";
@@ -30,7 +30,6 @@ export class SideBarComponent implements OnInit {
     this._initForm()
     if (this.breeds$) {
       this.breeds$.subscribe((breeds) => {
-        console.log(breeds)
         this.breeds = breeds;
       });
     }
@@ -51,7 +50,6 @@ export class SideBarComponent implements OnInit {
 
   onFind(): void {
     this.paramsService.setParams(this.form.value)
-    console.log(this.form.value)
     this.store.dispatch(new FetchCats());
   };
 
