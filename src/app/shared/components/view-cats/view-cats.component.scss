@@ -7,13 +7,13 @@
   top: 50%;
   transform: translate(-50%, -50%);
 }
+
 ._loading {
   position: fixed;
   left: 50%;
   top: 40%;
   transform: translate(-50%, -50%);
 }
-
 
 @media (max-width: 600px) {
   ._err {
@@ -22,28 +22,32 @@
   }
 }
 
-.cats_view_wrap{
+.cats_view_wrap {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   padding: 20px;
-  .cat_block{
+
+  .cat_block {
     display: flex;
     width: 30%;
     margin: 5px;
-    ._img{
+
+    ._img {
       width: 100%;
       height: auto;
       transition: .3s;
       cursor: pointer;
     }
-    ._img:hover{
+
+    ._img:hover {
       scale: 1.1;
       transition: .3s;
     }
-    ._img:active{
+
+    ._img:active {
       scale: 1.15;
     }
   }

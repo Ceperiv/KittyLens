@@ -5,7 +5,7 @@
         <mat-label>Favorite breed</mat-label>
         <mat-select formControlName="breed">
           <mat-option>- ALL -</mat-option>
-          <mat-option  *ngFor="let breed of breeds" [value]="breed.id">
+          <mat-option *ngFor="let breed of breeds" [value]="breed.id">
             {{breed.name}}
           </mat-option>
         </mat-select>
@@ -13,18 +13,18 @@
       <mat-form-field>
         <mat-label>Sorting</mat-label>
         <mat-select formControlName="sorting">
-          <mat-option value="RAND">Random</mat-option>
-          <mat-option value="DESC">Descending</mat-option>
-          <mat-option value="ASC">Ascending</mat-option>
+          <mat-option [value]="'RAND'">Random</mat-option>
+          <mat-option [value]="'DESC'">Descending</mat-option>
+          <mat-option [value]="'ASC'">Ascending</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field>
-          <mat-label>Cats on the page</mat-label>
+        <mat-label>Cats on the page</mat-label>
         <mat-select formControlName="limit">
-          <mat-option value="10">10 per page</mat-option>
-          <mat-option value="20">20 per page</mat-option>
-          <mat-option value="50">50 per page</mat-option>
-          <mat-option value="100">100 per page</mat-option>
+          <mat-option [value]="10">10 per page</mat-option>
+          <mat-option [value]="20">20 per page</mat-option>
+          <mat-option [value]="50">50 per page</mat-option>
+          <mat-option [value]="100">100 per page</mat-option>
         </mat-select>
       </mat-form-field>
       <div style="display: flex; width: 100%; justify-content: space-evenly">
@@ -38,5 +38,4 @@
     </form>
   </div>
   <mat-icon class="toggle_button" (click)="barToggle()">compare_arrows</mat-icon>
-
 </aside>

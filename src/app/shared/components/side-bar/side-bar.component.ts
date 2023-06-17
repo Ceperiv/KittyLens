@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {IBreeds, IErr} from "../../../interfaces";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormControl, FormGroup} from "@angular/forms";
 import {Select, Store} from "@ngxs/store";
-import {BreedState} from "../../../core/store/state/breeds.state";
 import {Observable} from "rxjs";
+
+import {BreedState} from "../../../core/store/state/breeds.state";
 import {FetchBreeds} from "../../../core/store/actions/breeds.actions";
 import {FetchCats} from "../../../core/store/actions/cat.actions";
 import {ParamsService} from "../../services";
@@ -22,7 +23,7 @@ export class SideBarComponent implements OnInit {
   @Select(BreedState.getError) error$: Observable<IErr> | undefined;
 
   constructor(private store: Store,
-              private paramsService:ParamsService) {
+              private paramsService: ParamsService) {
   };
 
   ngOnInit(): void {
@@ -38,9 +39,9 @@ export class SideBarComponent implements OnInit {
   _initForm(): void {
     this.store.dispatch(new FetchBreeds());
     this.form = new FormGroup({
-      breed: new FormControl('', ),
-      sorting: new FormControl('RAND', ),
-      limit: new FormControl('10', ),
+      breed: new FormControl('',),
+      sorting: new FormControl('RAND',),
+      limit: new FormControl('10',),
     })
   };
 
@@ -48,13 +49,13 @@ export class SideBarComponent implements OnInit {
     this.showBar = !this.showBar;
   };
 
-  onFind():void {
+  onFind(): void {
     this.paramsService.setParams(this.form.value)
     console.log(this.form.value)
     this.store.dispatch(new FetchCats());
   };
 
   onClear() {
-    this.form.setValue({breed:'', sorting:'', limit:''})
+    this.form.setValue({breed: '', sorting: '', limit: ''})
   };
 }

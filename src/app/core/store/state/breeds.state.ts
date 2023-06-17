@@ -1,9 +1,9 @@
-import { Action, Selector, State, StateContext } from '@ngxs/store';
+import {Action, Selector, State, StateContext} from '@ngxs/store';
 import {Injectable} from "@angular/core";
-import { tap } from 'rxjs/operators';
+import {tap} from 'rxjs/operators';
 
-import { BreedService } from '../../services';
-import { IBreeds } from '../../../interfaces';
+import {BreedService} from '../../services';
+import {IBreeds} from '../../../interfaces';
 import {FetchBreeds, FetchBreedsError, FetchBreedsSuccess} from "../actions/breeds.actions";
 
 export interface BreedStateModel {

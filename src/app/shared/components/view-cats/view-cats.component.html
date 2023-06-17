@@ -10,9 +10,8 @@
 
 <div class="cats_view_wrap" *ngIf="(cats$ | async) as cats">
   <div class="cat_block" *ngFor="let cat of cats">
-      <img (click)="openModal(cat)" class="_img" [src]="cat.url" [alt]="cat.id" [width]="cat.width" [height]="cat.height">
-    </div>
-
+    <img (click)="openModal(cat)" class="_img" [src]="cat.url" [alt]="cat.id" [width]="cat.width" [height]="cat.height">
+  </div>
 </div>
 
 <div class="_err" *ngIf="(error$ | async) as error">

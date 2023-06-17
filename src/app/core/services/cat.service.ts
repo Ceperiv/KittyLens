@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {urls} from "../../configs";
 import {Observable} from "rxjs";
+
+import {urls} from "../../configs";
 import {ICats} from "../../interfaces";
 
 @Injectable({
@@ -13,8 +14,6 @@ export class CatService {
   };
 
   getCatsByParams(limit?: string, breed?: string, order?: string): Observable<ICats[]> {
-    console.log(urls.cats(limit, breed, order),555555555)
     return this.httpClient.get<ICats[]>(urls.cats(limit, breed, order))
   };
-
 }

@@ -25,7 +25,7 @@ export interface CatStateModel {
 export class CatState {
   constructor(private catService: CatService,
               private paramsService: ParamsService) {
-  }
+  };
 
   @Action(FetchCats)
   fetchCats(ctx: StateContext<CatStateModel>) {
@@ -38,7 +38,6 @@ export class CatState {
     return this.catService.getCatsByParams(limit, breed, sorting).pipe(
       tap(
         (cats: ICats[]) => {
-          console.log(cats,8888)
           ctx.dispatch(new FetchCatsSuccess(cats));
         },
         (error: any) => {
@@ -57,7 +56,7 @@ export class CatState {
       isLoading: false,
       error: null,
     });
-  }
+  };
 
   @Action(FetchCatsError)
   fetchCatsError(ctx: StateContext<CatStateModel>, action: FetchCatsError) {
@@ -68,20 +67,20 @@ export class CatState {
       isLoading: false,
       error,
     });
-  }
+  };
 
   @Selector()
   static getCats(state: CatStateModel) {
     return state.cats;
-  }
+  };
 
   @Selector()
   static isLoading(state: CatStateModel) {
     return state.isLoading;
-  }
+  };
 
   @Selector()
   static getError(state: CatStateModel) {
     return state.error;
-  }
+  };
 }

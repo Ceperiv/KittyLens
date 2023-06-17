@@ -2,9 +2,9 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HttpClientModule} from "@angular/common/http";
 import {NgxsModule} from "@ngxs/store";
+import {NgxsLoggerPluginModule} from "@ngxs/logger-plugin";
 
 import {CatState} from "./store/state/cat.state";
-import {NgxsLoggerPluginModule} from "@ngxs/logger-plugin";
 import {environment} from "../../environmets/environment.dev";
 import {BreedState} from "./store/state/breeds.state";
 

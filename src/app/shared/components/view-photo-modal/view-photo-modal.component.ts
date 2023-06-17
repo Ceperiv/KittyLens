@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {ICats} from "../../../interfaces";
 
 @Component({
@@ -7,15 +7,13 @@ import {ICats} from "../../../interfaces";
   templateUrl: './view-photo-modal.component.html',
   styleUrls: ['./view-photo-modal.component.scss']
 })
-export class ViewPhotoModalComponent implements OnInit{
-  cat:ICats;
+export class ViewPhotoModalComponent implements OnInit {
+  cat: ICats;
 
-  constructor(private dialogRef: MatDialogRef<ViewPhotoModalComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: ICats) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: ICats) {
   };
 
   ngOnInit(): void {
     this.cat = this.data
   };
-
 }

@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+
 import {urls} from "../../configs";
 import {IBreeds} from "../../interfaces";
 
@@ -9,7 +10,8 @@ import {IBreeds} from "../../interfaces";
 })
 export class BreedService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
 
   getBreeds(): Observable<IBreeds[]> {
     return this.httpClient.get<IBreeds[]>(urls.breeds())
