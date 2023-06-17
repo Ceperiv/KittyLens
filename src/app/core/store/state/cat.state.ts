@@ -1,10 +1,10 @@
 import { Action, Selector, State, StateContext } from '@ngxs/store';
+import {Injectable} from "@angular/core";
 import { tap } from 'rxjs/operators';
 
 import { FetchCats, FetchCatsError, FetchCatsSuccess } from '../actions/cat.actions';
 import { CatService } from '../../services';
 import { ICats } from '../../../interfaces';
-import {Injectable} from "@angular/core";
 
 export interface CatStateModel {
   cats: ICats[];
@@ -30,6 +30,7 @@ export class CatState {
       isLoading: true,
       error: null,
     });
+
 
     return this.catService.getCatsByParams().pipe(
       tap(

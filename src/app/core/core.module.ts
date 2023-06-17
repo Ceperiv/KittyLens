@@ -8,6 +8,7 @@ import {NgxsLoggerPluginModule} from "@ngxs/logger-plugin";
 import {environment} from "../../environmets/environment.dev";
 import { CatsComponent } from './components/cats/cats.component';
 import {CatSelectors} from "./store/selectors/cat.selectors";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {CatSelectors} from "./store/selectors/cat.selectors";
     // NgxsModule.forFeature([CatState]),
     NgxsLoggerPluginModule.forRoot({
       disabled: environment.production
-    })
+    }),
+    MatProgressSpinnerModule
   ]
 })
 

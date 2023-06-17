@@ -20,6 +20,6 @@ export class CatsComponent implements OnInit {
   constructor(private store: Store) { }
 
   ngOnInit(): void {
-    this.store.dispatch(new FetchCats(true));
+    this.store.dispatch(new FetchCats());
   }
 }

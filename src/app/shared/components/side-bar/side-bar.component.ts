@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-side-bar',
@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./side-bar.component.scss']
 })
 export class SideBarComponent {
+  showBar: boolean = false;
 
+
+
+    barToggle(): void {
+      this.showBar = !this.showBar;
+    };
 }

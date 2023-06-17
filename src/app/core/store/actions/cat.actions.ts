@@ -2,8 +2,6 @@ import {ICats} from "../../../interfaces";
 
 export class FetchCats {
   static readonly type = '[Cat] Get Cats';
-  constructor(isLoading:boolean) {
-  }
 }
 
 export class FetchCatsSuccess {

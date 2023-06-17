@@ -1,1 +1,9 @@
-<p>side-bar works!</p>
+<aside class="aside_wrap"  >
+  <div class="_aside" [ngClass]="{ 'active': showBar }">
+    <input />
+    <button>hello</button>
+  </div>
+
+    <mat-icon class="toggle_button" (click)="barToggle()">compare_arrows</mat-icon>
+
+</aside>

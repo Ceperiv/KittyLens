@@ -1,0 +1,13 @@
+.cats_wrap {
+  width: 100%;
+  display: flex;
+
+  app-side-bar {
+    width: max-content;
+    max-width: 20%;
+  }
+
+  app-cats {
+   width: 100%;
+  }
+}
