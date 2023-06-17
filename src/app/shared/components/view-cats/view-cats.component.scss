@@ -32,6 +32,8 @@
 
   .cat_block {
     display: flex;
+    justify-content: center;
+    align-items: center;
     width: 30%;
     margin: 5px;
 
@@ -54,7 +56,26 @@
 }
 
 
+@media (max-width: 1024px) {
+  .cats_view_wrap {
+    .cat_block {
+      width: 40%;
 
+      ._img {
+        width: 100%;
+      }
+    }
+  }
+}
 
+@media (max-width: 992px) {
+  .cats_view_wrap {
+    .cat_block {
+      width: 90%;
 
-
+      ._img {
+        width: 80%;
+      }
+    }
+  }
+}
