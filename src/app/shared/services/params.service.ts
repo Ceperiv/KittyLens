@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
+import {IParams} from "../../interfaces";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ParamsService {
-  params: Object
+  params: IParams;
 
-  setCity(params: Object): void {
-    this.params = params
+  setParams(params: IParams): void {
+    this.params = {};
+    this.params = params;
   };
 
-  getCity(): Object {
-    return this.params
+  getParams(): IParams {
+    return this.params;
   };
 }

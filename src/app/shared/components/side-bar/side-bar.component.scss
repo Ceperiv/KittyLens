@@ -10,6 +10,11 @@
     width: 100%;
     background: silver;
     padding: 5px;
+
+    form{
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   .toggle_button {

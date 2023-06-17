@@ -1,2 +1,2 @@
-export * from './breeds.service'
+export * from './breed.service'
 export * from './cat.service'

@@ -12,8 +12,9 @@ export class CatService {
   constructor(private httpClient: HttpClient) {
   };
 
-  getCatsByParams(limit?: number, breed?: string, order?: string): Observable<ICats> {
-    return this.httpClient.get<ICats>(urls.cats(limit, breed, order))
+  getCatsByParams(limit?: string, breed?: string, order?: string): Observable<ICats[]> {
+    console.log(urls.cats(limit, breed, order),555555555)
+    return this.httpClient.get<ICats[]>(urls.cats(limit, breed, order))
   };
 
 }

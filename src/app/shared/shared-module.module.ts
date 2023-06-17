@@ -2,14 +2,17 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {MainLayoutComponent} from "./layouts";
-import {FooterComponent, HeaderComponent, SideBarComponent} from './components';
+import {ViewCatsComponent, FooterComponent, HeaderComponent, SideBarComponent} from './components';
 import {RouterOutlet} from "@angular/router";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatInputModule} from "@angular/material/input";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatIconModule} from "@angular/material/icon";
+import {CoreModule} from "../core/core.module";
+import {MatSelectModule} from "@angular/material/select";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 
 @NgModule({
@@ -17,10 +20,12 @@ import {MatIconModule} from "@angular/material/icon";
     MainLayoutComponent,
     HeaderComponent,
     FooterComponent,
-    SideBarComponent
+    SideBarComponent,
+    ViewCatsComponent,
   ],
   exports: [
-    SideBarComponent
+    SideBarComponent,
+    ViewCatsComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +35,12 @@ import {MatIconModule} from "@angular/material/icon";
     FormsModule,
     MatButtonModule,
     MatSidenavModule,
-    MatIconModule
+    MatIconModule,
+    CoreModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatProgressSpinnerModule,
+
   ]
 })
 export class SharedModuleModule {

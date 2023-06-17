@@ -5,6 +5,7 @@ import { tap } from 'rxjs/operators';
 import { FetchCats, FetchCatsError, FetchCatsSuccess } from '../actions/cat.actions';
 import { CatService } from '../../services';
 import { ICats } from '../../../interfaces';
+import {ParamsService} from "../../../shared/services";
 
 export interface CatStateModel {
   cats: ICats[];
@@ -22,7 +23,8 @@ export interface CatStateModel {
 })
 @Injectable()
 export class CatState {
-  constructor(private catService: CatService) {}
+  constructor(private catService: CatService,
+              private paramsService: ParamsService) {}
 
   @Action(FetchCats)
   fetchCats(ctx: StateContext<CatStateModel>) {
@@ -30,8 +32,8 @@ export class CatState {
       isLoading: true,
       error: null,
     });
-
-
+    // const {limit, breed, sorting} = this.paramsService.getParams()
+    console.log(this.paramsService.getParams())
     return this.catService.getCatsByParams().pipe(
       tap(
         (cats: ICats[]) => {
@@ -57,7 +59,7 @@ export class CatState {
 
   @Action(FetchCatsError)
   fetchCatsError(ctx: StateContext<CatStateModel>, action: FetchCatsError) {
-    const error = action.error; // Оновлено з action.payload на action.error
+    const error = action.error;
 
     ctx.patchState({
       cats: [],
