@@ -10,6 +10,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {RouterLink} from "@angular/router";
+import {MatIconModule} from "@angular/material/icon";
 
 
 
@@ -27,7 +28,8 @@ import {RouterLink} from "@angular/router";
     MatButtonModule,
     MatSidenavModule,
     MatProgressSpinnerModule,
-    RouterLink
+    RouterLink,
+    MatIconModule
   ]
 })
 export class PagesModule { }

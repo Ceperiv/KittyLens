@@ -1,6 +1,6 @@
 <div class="home">
   <h1 class="home-title">Welcome to the Cat Gallery</h1>
-  <button mat-button color="accent" routerLink="cats">Click to choose more cats</button>
+  <button mat-button color="accent" routerLink="/cats">Click to choose more cats</button>
   <div class="cat-gallery" *ngIf="(cats$ | async) as cats">
     <img *ngFor="let cat of cats" [src]="cat.url" alt="{{cat.id}}" class="cat-image">
   </div>
