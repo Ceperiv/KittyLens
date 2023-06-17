@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 
 import {MainLayoutComponent} from "./layouts";
 import {FooterComponent, HeaderComponent, SideBarComponent, ViewCatsComponent} from './components';
-import {RouterOutlet} from "@angular/router";
+import {RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
@@ -43,7 +43,9 @@ import {MatDialogModule} from "@angular/material/dialog";
     ReactiveFormsModule,
     MatSelectModule,
     MatProgressSpinnerModule,
-    MatDialogModule
+    MatDialogModule,
+    RouterLink,
+    RouterLinkActive
 
   ]
 })

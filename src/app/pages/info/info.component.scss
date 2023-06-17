@@ -1,0 +1,23 @@
+.contacts {
+  background-color: #f9f9f9;
+  padding: 40px;
+  text-align: center;
+
+  .contacts-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+
+    p {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+  }
+}

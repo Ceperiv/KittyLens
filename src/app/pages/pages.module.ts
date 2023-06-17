@@ -8,6 +8,8 @@ import {CoreModule} from "../core/core.module";
 import {SharedModuleModule} from "../shared/shared-module.module";
 import {MatButtonModule} from "@angular/material/button";
 import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {RouterLink} from "@angular/router";
 
 
 
@@ -23,7 +25,9 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     CoreModule,
     SharedModuleModule,
     MatButtonModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatProgressSpinnerModule,
+    RouterLink
   ]
 })
 export class PagesModule { }

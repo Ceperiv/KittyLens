@@ -2,13 +2,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import {MainLayoutComponent} from "./shared/layouts";
-import {Error404Component, Cats} from "./pages";
+import {Error404Component, Cats, HomeComponent, InfoComponent} from "./pages";
 
 const routes: Routes = [
   {
     path: '', component:MainLayoutComponent, children: [
       {path: '', redirectTo: 'cats', pathMatch: 'full'},
+      {path: 'home', component: HomeComponent},
       {path: 'cats', component: Cats},
+      {path: 'contacts', component: InfoComponent},
     ],
 
   },
