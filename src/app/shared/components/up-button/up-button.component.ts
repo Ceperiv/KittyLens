@@ -13,7 +13,6 @@ export class UpButtonComponent {
   @HostListener('window:scroll', ['$event'])
   onScroll(): void {
     const verticalOffset = document.documentElement.scrollTop || 0;
-    console.log(verticalOffset)
     if (verticalOffset > 200) {
       setTimeout(() => {
         this.showButton = true
