@@ -15,6 +15,7 @@ import {MainLayoutComponent} from "./layouts";
 import {FooterComponent, HeaderComponent, SideBarComponent, ViewCatsComponent} from './components';
 import {CoreModule} from "../core/core.module";
 import {ViewPhotoModalComponent} from './components/view-photo-modal/view-photo-modal.component';
+import { UpButtonComponent } from './components/up-button/up-button.component';
 
 
 @NgModule({
@@ -25,11 +26,13 @@ import {ViewPhotoModalComponent} from './components/view-photo-modal/view-photo-
     SideBarComponent,
     ViewCatsComponent,
     ViewPhotoModalComponent,
+    UpButtonComponent,
   ],
-  exports: [
-    SideBarComponent,
-    ViewCatsComponent
-  ],
+    exports: [
+        SideBarComponent,
+        ViewCatsComponent,
+        UpButtonComponent
+    ],
   imports: [
     CommonModule,
     RouterOutlet,
